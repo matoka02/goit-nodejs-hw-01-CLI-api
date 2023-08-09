@@ -16,7 +16,7 @@ const listContacts = async () => {
 const getContactById = async (contactId) => {
   try {
     const contacts = await listContacts();
-    return contacts.filter(({ id }) => id === contactId);
+    return contacts.find(item => item.id === contactId);
   } catch (error) {
     console.log(`Error: ${error.message}`);
   }
@@ -25,7 +25,7 @@ const getContactById = async (contactId) => {
 const removeContact = async (contactId) => {
   try {
     const contacts = await listContacts();
-    const newContacts = contacts.filter(({ id }) => id !== contactId);
+    const newContacts = contacts.findIndex( item => item.id !== contactId);
     await fs.writeFile(contactsPath, JSON.stringify(newContacts, null, 2), {
       encoding: "utf-8",
     });
@@ -54,8 +54,6 @@ const addContact = async (name, email, phone) => {
     console.log(`Error: ${error.message}`);
   }
 };
-
-// listContacts();
 
 module.exports = {
   listContacts,
