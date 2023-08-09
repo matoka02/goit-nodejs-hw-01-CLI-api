@@ -6,7 +6,7 @@
 
 # Get contact by id
 
-[node index.js --action get --id 5](https://ibb.co/vY7QR16)
+[node index.js --action get --id 05olLMgyVQdWRwgKfg5J6](https://ibb.co/vY7QR16)
 
 # Add contact
 
@@ -14,4 +14,4 @@
 
 # Remove contact
 
-[node index.js --action remove --id 3](https://ibb.co/0JyhtXg)
+[node index.js --action remove --id qdggE76Jtbfd9eWJHrssH](https://ibb.co/0JyhtXg)
