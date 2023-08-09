@@ -13,8 +13,9 @@ const listContacts = async () => {
   }
 };
 
-const getContactById = async (contactId) => {
+const getContactById = async (id) => {
   try {
+    const contactId = String(id);
     const contacts = await listContacts();
     return contacts.find(item => item.id === contactId);
   } catch (error) {
@@ -22,10 +23,11 @@ const getContactById = async (contactId) => {
   }
 };
 
-const removeContact = async (contactId) => {
+const removeContact = async (id) => {
   try {
+    const contactId = String(id);
     const contacts = await listContacts();
-    const newContacts = contacts.findIndex( item => item.id !== contactId);
+    const newContacts = contacts.filter(({ id }) => id !== contactId);
     await fs.writeFile(contactsPath, JSON.stringify(newContacts, null, 2), {
       encoding: "utf-8",
     });
